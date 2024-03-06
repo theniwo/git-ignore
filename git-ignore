@@ -3,11 +3,11 @@
 ## This script sources .gitignore templates from https://github.com/github/gitignore
 ## to the root of the current git repo.
 ##
-## See ./gitignore.sh --help for more help.
+## See ./git-ignore --help for more help.
 ##
-## AUTHOR: Casey Heidrich
+## AUTHOR: Casey Heidrich, Nils Woeste
 ## LICENSE: GNU General Public License
-## UPDATED: 7/9/2018
+## UPDATED: 6/3/2024
 
 
 usage() {
@@ -18,6 +18,7 @@ usage() {
 #   None
     echo "usage: ./gitignore.sh [-g] gitignore_name"
     echo "  -g, --global      Look for global template (operating system or editor specific)."
+    echo "  -c  --community   Look for community templates."
     echo
     echo "This script sources .gitignore templates from https://github.com/github/gitignore"
     exit 1
