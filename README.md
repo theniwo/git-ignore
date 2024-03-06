@@ -33,5 +33,12 @@ Templates organized as Global (operating system or editor specific) need to use 
 foo@bar:~$ git ignore --global VisualStudioCode
 ```
 
+### Community .gitignore
+Templates organized as Community (operating system or editor specific) need to use the --community (-c) flag
+```console
+foo@bar:~$ git ignore --community Puppet
+
+```
+
 ## License
 GNU General Public License
