@@ -16,7 +16,8 @@ usage() {
 #   None
 # Outputs:
 #   None
-    echo "usage: ./gitignore.sh [-g] gitignore_name"
+    echo "usage: ./git-ignore [-g, --global, -c, --community] gitignore_name (Case sensitive)"
+    echo "or git ignore [-g, --global, -c, --community] gitignore_name (Case sensitive)"
     echo "  -g, --global      Look for global template (operating system or editor specific)."
     echo "  -c  --community   Look for community templates."
     echo
