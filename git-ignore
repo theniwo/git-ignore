@@ -65,19 +65,22 @@ github_api() {
 }
 
 # parse variables
-OPTIONS=gh
-LONGOPTS=global,help
+OPTIONS=gch
+LONGOPTS=global,community,help
 PARSED=$(getopt --options=$OPTIONS --longoptions=$LONGOPTS --name "$0" -- "$@") \
     || error_exit $LINENO "failed to parse input arguments."
 eval set -- "$PARSED"
 
 # get inputs
-global= name=
+global= community= name=
 while true; do
     case "$1" in
         -g|--global)    global=1
                         shift
                         ;;
+	-c|--community) community=1
+			shift
+			;;
         -h|--help)      usage
                         ;;
         -- )            shift
@@ -103,7 +106,11 @@ ignorefile="$gitroot/.gitignore"
 # get file
 owner="github"
 repo="gitignore"
-file="${global:+"Global/"}$name.gitignore"
+if [ $community ];then
+	file="${community:+"community/"}$name.gitignore"
+else
+	file="${global:+"Global/"}$name.gitignore"
+fi
 github_api $owner $repo $file
 status_exit $status "Retrieved '$file' as '$ignorefile'."
 
